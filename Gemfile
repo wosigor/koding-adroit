@@ -35,6 +35,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
+gem 'mongoid', github: 'estolfo/mongoid', branch: 'MONGOID-4218-rails-5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

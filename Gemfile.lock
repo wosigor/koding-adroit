@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/estolfo/mongoid.git
+  revision: f191dec19d701faf088995421d4a9f32f4ea49ba
+  branch: MONGOID-4218-rails-5
+  specs:
+    mongoid (5.1.0)
+      activemodel (= 5.0.0.beta2)
+      mongo (~> 2.1)
+      tzinfo (>= 0.3.37)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -48,6 +58,7 @@ GEM
     bootstrap (4.0.0.alpha3)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bson (4.0.2)
     builder (3.2.2)
     byebug (8.2.2)
     coffee-rails (4.1.1)
@@ -80,6 +91,8 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    mongo (2.2.3)
+      bson (~> 4.0)
     multi_json (1.11.2)
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
@@ -161,6 +174,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  mongoid!
   puma
   rails (>= 5.0.0.beta2, < 5.1)
   rails-assets-tether (>= 1.1.0)!
