@@ -7,9 +7,19 @@
           <%= file_field_tag :file %>
         </div>
         <div class="row">
-          <%= submit_tag nil, class:'btn btn-primary pull-xs-right' %>
+          <%= submit_tag nil, class:'btn btn-primary pull-xs-right', 'data-toggle' => "modal" , 'data-target' => "#myModal" %>
         </div>
       <% end %>
     </fieldset>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="loader"></div>
+      </div>
+    </div>
   </div>
 </div>
