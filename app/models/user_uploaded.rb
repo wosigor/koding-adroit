@@ -1,6 +1,6 @@
 class UserUploaded
   include Mongoid::Document
-  field :transaction_date, type: DateTime
+  field :transaction_date, type: Date
   field :description, type: String
   field :amount, type: BigDecimal
   field :merchant_name, type: String
@@ -30,8 +30,3 @@ class UserUploaded
     super
   end
 end
-
-
-git filter-branch --force --index-filter \
-'git rm --cached --ignore-unmatch visa.csv' \
---prune-empty --tag-name-filter cat -- --all

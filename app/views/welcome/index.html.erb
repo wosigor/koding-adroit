@@ -3,8 +3,12 @@
     <fieldset>
       <legend>Upload File</legend>
       <%= form_tag root_path, multipart: true do %>
-        <%= file_field_tag :file %>
-        <%= submit_tag %>
+        <div class="row">
+          <%= file_field_tag :file %>
+        </div>
+        <div class="row">
+          <%= submit_tag nil, class:'btn btn-primary pull-xs-right' %>
+        </div>
       <% end %>
     </fieldset>
   </div>

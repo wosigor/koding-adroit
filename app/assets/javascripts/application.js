@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require tether
 //= require bootstrap-sprockets
+//= require highcharts
+//= require lodash
 //= require_tree .
