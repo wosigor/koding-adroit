@@ -1,36 +1,54 @@
 <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+      <h1 class="display-3">Hello, analytics!</h1>
+      <p class="lead">Finally understand where is your money going!</p>
+      <hr class="m-y-2">
+      <p>Upload a CSV of your transaction data to figure out where your money goes so you can get some control on your finances.</p>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <fieldset>
-      <legend>Upload File</legend>
-      <%= form_tag root_path, multipart: true do %>
-        <div class="row">
-          <%= file_field_tag :file %>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= label_tag :transaction_date_column, 'Transaction Date Column' %>
-              <%= select_tag :transaction_date_column, options_for_select(0..3, 0), class:'form-control' %>
+    <div class="row">
+      <fieldset>
+        <legend>Upload File</legend>
+        <%= form_tag root_path, multipart: true do %>
+            <div class="row">
+              <%= file_field_tag :file %>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= label_tag :amount_column, 'Amount Column' %>
-              <%= select_tag :amount_column, options_for_select(0..3, 2), class:'form-control' %>
+            <div class="row">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag :transaction_date_column, 'Transaction Date Column' %>
+                    <%= select_tag :transaction_date_column, options_for_select(0..3, 0), class:'form-control' %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag :amount_column, 'Amount Column' %>
+                    <%= select_tag :amount_column, options_for_select(0..3, 2), class:'form-control' %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= label_tag :description_column, 'Description Column' %>
+                    <%= select_tag :description_column, options_for_select(0..3, 1), class:'form-control' %>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= label_tag :description_column, 'Description Column' %>
-              <%= select_tag :description_column, options_for_select(0..3, 1), class:'form-control' %>
+            <div class="row">
+              <%= submit_tag "Analyze", class:'btn btn-primary pull-xs-right', 'data-toggle' => "modal" , 'data-target' => "#myModal" %>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <%= submit_tag "Analyze", class:'btn btn-primary pull-xs-right', 'data-toggle' => "modal" , 'data-target' => "#myModal" %>
-        </div>
-      <% end %>
-    </fieldset>
+        <% end %>
+      </fieldset>
+    </div>
   </div>
 </div>
 <!-- Modal -->
