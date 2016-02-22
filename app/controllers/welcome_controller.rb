@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   end
 
   def show
-    uploads = UserUploaded.all.group_by {|d| d.transaction_date.strftime('%Y-%m') }
+    uploads = UserUploaded.where(id:params[:upload_id]).first.transaction_lines.all.group_by {|d| d.transaction_date.strftime('%Y-%m') }
     values = uploads.inject({}) do |hash, (key,val)|
       types = {}
       total_amount_per_category = {}
@@ -33,13 +33,14 @@ class WelcomeController < ApplicationController
     transaction_column = params[:transaction_column].to_i
     decription_column = params[:decription_column].to_i
     amount_column = params[:amount_column].to_i
+    user_uploaded = UserUploaded.create
     params[:file].tempfile.each_line do |line|
       tokens = line.split(',')
-      UserUploaded.create(
+      user_uploaded.transaction_lines.create(
           transaction_date: Date.strptime(tokens[transaction_column], '%m/%d/%Y'),
           description: tokens[decription_column],
           amount: tokens[amount_column])
     end
-    redirect_to show_path
+    redirect_to show_path(upload_id:user_uploaded.id)
   end
 end

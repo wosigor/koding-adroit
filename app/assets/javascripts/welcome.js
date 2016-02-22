@@ -1,6 +1,6 @@
 $(function() {
   if ($('#charts').length > 0) {
-        $.getJSON('/show.json', function(data) {
+        $.getJSON(location.pathname+'.json', function(data) {
         _.each(data, function(obj, date) {
         var $row = $('<div/>', {class:'row'});
         $row.append()
