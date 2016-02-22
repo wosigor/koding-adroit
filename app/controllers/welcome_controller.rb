@@ -30,12 +30,15 @@ class WelcomeController < ApplicationController
   end
 
   def file_upload
+    transaction_column = params[:transaction_column].to_i
+    decription_column = params[:decription_column].to_i
+    amount_column = params[:amount_column].to_i
     params[:file].tempfile.each_line do |line|
       tokens = line.split(',')
       UserUploaded.create(
-          transaction_date: Date.strptime(tokens[0], '%m/%d/%Y'),
-          description: tokens[1],
-          amount: tokens[2])
+          transaction_date: Date.strptime(tokens[transaction_column], '%m/%d/%Y'),
+          description: tokens[decription_column],
+          amount: tokens[amount_column])
     end
     redirect_to show_path
   end

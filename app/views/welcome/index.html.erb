@@ -7,7 +7,27 @@
           <%= file_field_tag :file %>
         </div>
         <div class="row">
-          <%= submit_tag nil, class:'btn btn-primary pull-xs-right', 'data-toggle' => "modal" , 'data-target' => "#myModal" %>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= label_tag :transaction_date_column, 'Transaction Date Column' %>
+              <%= select_tag :transaction_date_column, options_for_select(0..3, 0), class:'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= label_tag :amount_column, 'Amount Column' %>
+              <%= select_tag :amount_column, options_for_select(0..3, 2), class:'form-control' %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= label_tag :description_column, 'Description Column' %>
+              <%= select_tag :description_column, options_for_select(0..3, 1), class:'form-control' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <%= submit_tag "Analyze", class:'btn btn-primary pull-xs-right', 'data-toggle' => "modal" , 'data-target' => "#myModal" %>
         </div>
       <% end %>
     </fieldset>
