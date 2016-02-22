@@ -31,7 +31,7 @@ class WelcomeController < ApplicationController
 
   def file_upload
     transaction_column = params[:transaction_column].to_i
-    decription_column = params[:decription_column].to_i
+    decription_column = params[:description_column].to_i
     amount_column = params[:amount_column].to_i
     user_uploaded = UserUploaded.create
     params[:file].tempfile.each_line do |line|
